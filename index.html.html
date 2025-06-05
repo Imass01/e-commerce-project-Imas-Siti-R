@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Halaman E-Commerce Sederhana</title>
+
+    <style>
+        /* Reset & Base Style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fdfbfa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #d4a373;
+            color: white;
+            padding: 2rem 1rem 1rem;
+            text-align: center;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Navigasi atas */
+        nav {
+            background-color: #b76e79;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem; /* Tambahkan padding agar area klik lebih besar */
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            background-color: rgba(255, 255, 255, 0.2); /* Efek hover lebih jelas */
+            border-radius: 5px;
+        }
+
+        .search-bar {
+            margin-top: 1rem;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 200px;
+        }
+
+        .search-bar button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: #a05a65;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #8c4b57;
+        }
+
+        /* Section Style */
+        section {
+            padding: 1rem;
+            background: #fff;
+            margin: 1rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Produk Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            text-align: center;
+            padding: 1rem;
+            display: flex; /* Menggunakan flexbox untuk tata letak konten */
+            flex-direction: column;
+            justify-content: space-between; /* Untuk mendorong tombol ke bawah */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h2 {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            margin: 0.5rem 0;
+            flex-grow: 1; /* Agar deskripsi produk bisa mengisi ruang */
+        }
+
+        .price {
+            color: #b76e79;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            font-size: 1.1em;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #b76e79;
+            color: white;
+            padding: 0.75rem 1.5rem; /* Ukuran tombol lebih besar */
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            cursor: pointer; /* Menandakan ini bisa diklik */
+            border: none; /* Menghilangkan border default button */
+            font-size: 1rem;
+            margin-top: 1rem; /* Tambahkan sedikit jarak dari harga */
+        }
+
+        .btn:hover {
+            background-color: #a05a65;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #d4a373;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .sosmed-links {
+            margin-top: 1rem;
+        }
+        .sosmed-links a {
+            margin: 0 10px;
+            display: inline-block;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .sosmed-links a:hover {
+            color: #f0e4d7;
+        }
+
+        /* Legalitas */
+        .bisnis-legality img {
+            width: 200px;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#beranda"><img src="Gambar/logo.jpeg" alt="Company Logo"></a>
+            <h1>Zhafira Hijab Store</h1>
+        </div>
+        <nav class="main-navigation">
+            <ul>
+                <li><a href="#beranda">Home</a></li>
+                <li><a href="#produk">Shop Product</a></li>
+                <li><a href="#tentang-kami">About Us</a></li>
+                <li><a href="#kontak">Contact</a></li>
+                <li><a href="#legalitas">Bisnis Legality</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Cari Produk...">
+            <button>Cari</button>
+        </div>
+    </header>
+
+    <section id="beranda">
+        <h2>Selamat Datang di Zhafira Hijab</h2>
+        <p>Temukan Koleksi Hijab Terbaru dan Terlengkap Hanya di Zhafira Hijab.</p>
+    </section>
+    <section id="kategori">
+        <h2>Kategori Hijab</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h2>Bergo</h2>
+                <p>Hijab praktis dan cepat pakai</p>
+            </div>
+            <div class="product-card">
+                <h2>Pashmina</h2>
+                <p>Pashmina berbagai bahan: ceruti, kaos, instan</p>
+            </div>
+            <div class="product-card">
+                <h2>Segi Empat</h2>
+                <p>Hijab klasik dengan banyak pilihan motif</p>
+            </div>
+        </div>
+    </section>
+    <section id="produk-terbaru">
+        <h2 style="text-align: center; font-size: 1.8rem; margin-top: 2rem;">Produk Terbaru</h2>
+        
+        <div class="product-grid">
+            <div class="product-card" data-product-name="Hijab Voal Premium" data-product-price="65000">
+                <img src="Gambar/Hijab Voal Motif Premium.jpg" alt="Hijab Voal Motif Premium">
+                <h2>Hijab Voal Motif Premium</h2>
+                <p>Terbuat dari bahan voal berkualitas tinggi yang adem dan ringan.</p>
+                <p class="price">Rp65.000</p>
+                <button class="btn add-to-cart">Beli Sekarang</button>
+            </div>
+        
+            <div class="product-card" data-product-name="Hijab Motif Floral" data-product-price="550000">
+                <img src="Gambar/Hijab Motif Floral.jpg" alt="Hijab Motif Floral">
+                <h2>Hijab Motif Floral</h2>
+                <p>Hijab dengan motif bunga elegan dan warna lembut yang menawan.</p>
+                <p class="price">Rp55.000</p>
+                <button class="btn add-to-cart">Beli Sekarang</button>
+            </div>
+            <div class="product-card" data-product-name="Hijab Iner Ninja" data-product-price="20000">
+                <img src="Gambar/Hijab Iner Ninja.jpeg" alt="Hijab Iner Ninja">
+                <h2>Hijab Iner Ninja</h2>
+                <p>Inner Ninja Anti-Gerah adalah solusi sempurna untuk kenyamanan berhijab Anda sepanjang hari.
+                 Dibuat dengan material khusus yang ringan, adem, dan menyerap keringat,</p>
+                 <p class="price">Rp20.000</p>
+                 <button class="btn add-to-cart">Beli Sekarang</button>
+            </div>
+            <div class="product-card" data-product-name="Hijab Pashmina Turki Motif" data-product-price="60000">
+                <img src="Gambar/Hijab Pashmina Turki Motif.jpg" alt="Hijab Pashmina Turki Motif">
+                <h2>Hijab Pashmina Turki Motif</h2>
+                <p>Dibuat dari material berkualitas tinggi yang halus, ringan, dan tidak licin, pashmina ini sangat nyaman dipakai seharian penuh.
+                     Motifnya yang unik dan detail membuat penampilan Anda terlihat lebih mewah dan berkelas</p>
+                <p class="price">Rp60.000</p>
+                <button class="btn add-to-cart">Beli Sekarang</button>
+            </div>
+        </div>
+        
+    </section>
+    
+        
+
+    <main id="produk" class="product-grid">
+
+        <div class="product-card" data-product-name="Hijab Bergo" data-product-price="45000">
+            <img src="Gambar/Hijab Bergo.jpeg" alt="Hijab Bergo">
+            <h2>Hijab Bergo</h2>
+            <p>Hijab yang dirancang dengan desain bergo, memiliki bentuk yang simpel, praktis, dan nyaman digunakan sehari-hari.</p>
+            <p class="price">Rp45.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Hijab Bergo Syar'i" data-product-price="55000">
+            <img src="Gambar/Hijab Bergo Syar'i.jpeg" alt="Hijab Bergo Syar'i">
+            <h2>Hijab Bergo Syar'i</h2>
+            <p>Hijab yang dirancang dengan gaya syar'i, memiliki desain yang elegan.</p>
+            <p class="price">Rp55.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Pashmina Ceruti" data-product-price="35000">
+            <img src="Gambar/Hijab Pashmina Ceruti.jpeg" alt="Hijab Pashmina Ceruti">
+            <h2>Pashmina Ceruti</h2>
+            <p>Pashmina yang terbuat dari bahan ceruti, memiliki tekstur yang lembut dan ringan.</p>
+            <p class="price">Rp35.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Pashmina Instan" data-product-price="40000">
+            <img src="Gambar/Hijab Pashmina Instan.jpeg" alt="Hijab Pashmina Instan">
+            <h2>Pashmina Instan</h2>
+            <p>Pashmina yang dirancang untuk kemudahan penggunaan, tidak memerlukan pentu atau jarum.</p>
+            <p class="price">Rp40.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Pashmina Kaos" data-product-price="30000">
+            <img src="Gambar/Hijab Pashmina Kaos.jpeg" alt="Hijab Pashmina Kaos">
+            <h2>Pashmina Kaos</h2>
+            <p>Pashmina yang terbuat dari bahan kaos, memiliki tekstur yang nyaman dan fleksibel.</p>
+            <p class="price">Rp30.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Pashmina Silk" data-product-price="50000">
+            <img src="Gambar/Hijab Pashmina Silk.jpeg" alt="Hijab Pashmina Silk">
+            <h2>Pashmina Silk</h2>
+            <p>Pashmina yang terbuat dari bahan sutra, memiliki tekstur yang lembut dan mewah.</p>
+            <p class="price">Rp50.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Hijab Segi Empat Basic" data-product-price="25000">
+            <img src="Gambar/Hijab Segi Empat Basic.jpeg" alt="Hijab Segi Empat Basic">
+            <h2>Hijab Segi Empat Basic</h2>
+            <p>Hijab segi empat dengan desain sederhana dan minimalis.</p>
+            <p class="price">Rp25.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Segi Empat Paris" data-product-price="28000">
+            <img src="Gambar/Hijab Segi Empat Paris.jpeg" alt="Hijab Segi Empat Paris">
+            <h2>Segi Empat Paris</h2>
+            <p>Hijab segi empat dengan desain yang elegan dan memiliki tekstur yang lembut.</p>
+            <p class="price">Rp28.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+        <div class="product-card" data-product-name="Segi Empat Bela Square" data-product-price="30000">
+            <img src="Gambar/Hijab Segi Empat Bela Squre.jpeg" alt="Hijab Segi Empat Bela Square">
+            <h2>Segi Empat Bela Square</h2>
+            <p>Hijab segi empat dengan desain yang modern dan memiliki ukuran yang sesuai untuk membentuk wajah.</p>
+            <p class="price">Rp30.000</p>
+            <button class="btn add-to-cart">Beli Sekarang</button>
+        </div>
+
+    </main>
+
+    <section id="tentang-kami">
+        <h2>Tentang Zhafira Hijab Store</h2>
+        <p>Kami berkomitmen menyediakan koleksi hijab terbaik dengan kualitas premium dan desain yang modern. Zhafira Hijab Store adalah pilihan tepat untuk kebutuhan busana muslimah Anda. Mari tampil syar'i dan modis bersama kami!</p>
+    </section>
+
+    <section id="legalitas" class="bisnis-legality">
+        <h2>Bisnis Legality</h2>
+        <img src="Gambar/Bisnis Legality.jpg" alt="Legalitas 1">
+        <p>Zhafira Hijab Store beroperasi secara legal dan terdaftar. Kepercayaan Anda adalah prioritas kami.</p>
+    </section>
+
+    <footer id="kontak">
+        <p>&copy; 2025 Zhafira Hijab Store. Hak cipta dilindungi.</p>
+        <div class="sosmed-links">
+            <a href="https://wa.me/6282118355474" target="_blank">Chat WhatsApp</a>
+            <a href="https://www.tiktok.com/@zhafira_Hijab_Store" target="_blank">Lihat TikTok</a>
+            <a href="https://shopee.co.id/zhafira_Hijab_Store" target="_blank">Beli di Shopee</a>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsionalitas Navigasi (Smooth Scroll)
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - (document.querySelector('header').offsetHeight + document.querySelector('nav').offsetHeight), // Mengurangi tinggi header dan nav
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Fungsionalitas Tombol "Beli Sekarang" (Simulasi Pembelian)
+        const buyNowButtons = document.querySelectorAll('.add-to-cart'); // Menggunakan class add-to-cart
+
+        buyNowButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productName = productCard.dataset.productName;
+                const productPrice = productCard.dataset.productPrice;
+
+                // Simulasi aksi pembelian: bisa redirect ke halaman detail produk,
+                // menambahkan ke keranjang, atau langsung ke WhatsApp.
+                // Di sini, kita akan menampilkan alert sederhana dan redirect ke WhatsApp.
+
+                alert(`Anda akan membeli "${productName}" seharga Rp${productPrice}.`);
+
+                // Mengarahkan ke WhatsApp dengan pesan pre-filled
+                const whatsappMessage = `Halo, saya ingin membeli ${productName} (Rp${productPrice}). Apakah barang ini masih tersedia?`;
+                const whatsappURL = `https://wa.me/6289688322109?text=${encodeURIComponent(whatsappMessage)}`;
+                window.open(whatsappURL, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
